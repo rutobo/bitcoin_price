@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Price</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <img src="bitcoin.svg" alt="Bitcoin" class="bitcoin-logo">
+    </div>
+    <div id="price" class="price">$--</div>
+
+    <div class="animal-container bull-container">
+        <img src="bull.svg" alt="Bull" class="bull-svg">
+    </div>
+
+    <div class="animal-container bear-container">
+        <img src="bear.svg" alt="Bear" class="bear-svg">
+    </div>
+
+    <canvas id="particles-canvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: -2;"></canvas>
+
+    <script src="script.js"></script>
+    <!-- <div class="footer-text">BINANCE</div> -->
+</body>
+</html>

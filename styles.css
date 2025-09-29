@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 3rem;
+}
+
+.header-container {
+    position: absolute;
+    top: 15rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.bitcoin-logo {
+    height: 12rem;
+    width: auto;
+    opacity: 0.9;
+}
+
+.price {
+    font-size: 15rem;
+    font-weight: bold;
+    text-align: center;
+    color: #F7931A;
+}
+
+.animal-container {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out, filter 1.5s ease-in-out;
+}
+
+.animal-container.active.bull-container {
+    filter: drop-shadow(0 0 20px #00ff00) drop-shadow(0 0 40px rgba(0, 255, 0, 0.5)) drop-shadow(0 0 60px rgba(0, 255, 0, 0.3));
+    transform: translateY(-50%) scale(1.03);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out, filter 1.5s ease-in-out;
+}
+
+.animal-container.active.bear-container {
+    filter: drop-shadow(0 0 20px #ff0000) drop-shadow(0 0 40px rgba(255, 0, 0, 0.5)) drop-shadow(0 0 60px rgba(255, 0, 0, 0.3));
+    transform: translateY(-50%) scale(1.03);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out, filter 1.5s ease-in-out;
+}
+
+.bull-container {
+    left: -150px;
+    width: 1200px;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    top: calc(50% - 30px);
+    transform: translateY(-50%);
+}
+
+.bear-container {
+    right: -50px;
+    width: 1200px;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    top: calc(50% + 80px);
+    transform: translateY(-50%);
+}
+
+.bull-svg {
+    width: 1000px;
+    height: 1000px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    flex-shrink: 0;
+}
+
+.bear-svg {
+    width: 800px;
+    height: 800px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    flex-shrink: 0;
+}
