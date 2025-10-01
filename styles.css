@@ -330,16 +330,28 @@ body {
     }
 
     .header-container {
+        position: absolute;
+        top: 26vh;
+        left: 50%;
+        transform: translateX(-50%);
         margin-bottom: 0.8rem;
+        z-index: 1;
+        max-width: 90vw;
     }
 
     .price {
-        font-size: clamp(1.8rem, 7vw, 3.5rem);
+        font-size: clamp(1.8rem, 10vw, 3.5rem);
+        position: absolute;
+        top: 31vh;
         margin: 0.4rem 0;
+        text-align: center;
+        color: #F7931A;
+        font-weight: bold;
+        line-height: 1.1;
     }
 
     .bitcoin-logo {
-        height: clamp(1.8rem, 5vw, 3.5rem);
+        height: clamp(1.8rem, 10vw, 3.5rem);
     }
 
     body {
@@ -384,8 +396,8 @@ body {
     height: 28px;
 }
 
-/* Hide fullscreen button on mobile and tablet */
-@media (max-width: 768px) {
+/* Hide fullscreen button on mobile, tablet, and mobile landscape */
+@media (max-width: 1024px) {
     .fullscreen-btn {
         display: none !important;
     }
