@@ -344,6 +344,36 @@ class ParticleSystem {
     }
 }
 
+// Fullscreen toggle function
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.error('Error attempting to enable fullscreen:', err);
+        });
+    } else {
+        document.exitFullscreen().catch(err => {
+            console.error('Error attempting to exit fullscreen:', err);
+        });
+    }
+}
+
+// Update fullscreen button icon based on fullscreen state
+function updateFullscreenButton() {
+    const btn = document.getElementById('fullscreen-btn');
+    const svg = btn.querySelector('svg');
+
+    if (document.fullscreenElement) {
+        // Currently in fullscreen - show exit icon
+        svg.innerHTML = '<path d="M5 16H8V19H5V16ZM8 8H5V5H8V8ZM19 8V5H16V8H19ZM16 16H19V19H16V16Z" fill="currentColor"/>';
+    } else {
+        // Not in fullscreen - show enter icon
+        svg.innerHTML = '<path d="M8 3V5H4V9H2V3H8ZM2 21V15H4V19H8V21H2ZM22 21H16V19H20V15H22V21ZM22 9H20V5H16V3H22V9Z" fill="currentColor"/>';
+    }
+}
+
+// Listen for fullscreen changes to update button icon
+document.addEventListener('fullscreenchange', updateFullscreenButton);
+
 document.addEventListener('DOMContentLoaded', () => {
     const bitcoinTracker = new BitcoinPriceTracker();
     const particleSystem = new ParticleSystem();
