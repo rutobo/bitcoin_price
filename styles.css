@@ -274,7 +274,23 @@ body {
 /* Mobile landscape and small tablets */
 @media (max-width: 767px) and (min-width: 481px) {
     .bull-svg, .bear-svg {
-        width: clamp(200px, 40vw, 350px);
+        width: clamp(200px, 30vw, 350px);
+    }
+
+    .bitcoin-logo {
+        margin-top: -90px;
+        height: clamp(1.8rem, 10vw, 4.5rem);
+    }
+
+    .price {
+        font-size: clamp(1.8rem, 10vw, 4.5rem);
+        position: absolute;
+        top: 50%;    
+        margin: 0.4rem 0;
+        text-align: center;
+        color: #F7931A;
+        font-weight: bold;
+        line-height: 1.1;
     }
 }
 
@@ -310,6 +326,7 @@ body {
         width: clamp(200px, 35vw, 280px);
         height: auto;
         margin: 0;
+        margin-top: 80px;
         padding: 0;
         display: block;
         flex-shrink: 0;
@@ -319,7 +336,7 @@ body {
         width: clamp(200px, 35vw, 280px);
         height: auto;
         margin: 0;
-        margin-top: 40px;
+        margin-top: 120px;
         padding: 0;
         display: block;
         flex-shrink: 0;
