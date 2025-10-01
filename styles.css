@@ -139,6 +139,19 @@ body {
 
 /* Medium desktop/tablet landscape */
 @media (max-width: 1199px) and (min-width: 769px) {
+
+    .header-container {
+        height: clamp(4rem, 6vw, 8rem);
+    }
+
+    .bitcoin-logo {
+        height: clamp(4rem, 10vw, 8rem);
+    }
+
+    .price {
+        font-size: clamp(4rem, 4vw, 8rem);
+    }
+
     .bull-container {
         position: fixed;
         left: -100px;
@@ -166,7 +179,7 @@ body {
     }
 
     .bull-svg {
-        width: clamp(400px, 50vw, 600px);
+        width: clamp(200px, 30vw, 600px);
         height: auto;
         margin: 0;
         padding: 0;
@@ -175,7 +188,7 @@ body {
     }
 
     .bear-svg {
-        width: clamp(400px, 50vw, 600px);
+        width: clamp(200px, 30vw, 600px);
         height: auto;
         margin: 0;
         padding: 0;
@@ -191,11 +204,11 @@ body {
     }
 
     .animal-container.bull-container {
-        left: -100px;
+        left: -160px;
     }
 
     .animal-container.bear-container {
-        right: -100px;
+        right: -160px;
     }
 }
 
