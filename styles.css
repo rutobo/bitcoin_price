@@ -240,6 +240,7 @@ body {
         width: clamp(250px, 45vw, 450px);
         height: auto;
         margin: 0;
+        margin-top: 40px;
         padding: 0;
         display: block;
         flex-shrink: 0;
@@ -305,10 +306,20 @@ body {
         z-index: -1;
     }
 
-    .bull-svg, .bear-svg {
+    .bull-svg {
         width: clamp(200px, 35vw, 280px);
         height: auto;
         margin: 0;
+        padding: 0;
+        display: block;
+        flex-shrink: 0;
+    }
+    
+    .bear-svg {
+        width: clamp(200px, 35vw, 280px);
+        height: auto;
+        margin: 0;
+        margin-top: 40px;
         padding: 0;
         display: block;
         flex-shrink: 0;
@@ -331,7 +342,7 @@ body {
 
     .header-container {
         position: absolute;
-        top: 26vh;
+        top: 22vh;
         left: 50%;
         transform: translateX(-50%);
         margin-bottom: 0.8rem;
@@ -342,7 +353,7 @@ body {
     .price {
         font-size: clamp(1.8rem, 10vw, 3.5rem);
         position: absolute;
-        top: 31vh;
+        top: 29vh;
         margin: 0.4rem 0;
         text-align: center;
         color: #F7931A;
