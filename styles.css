@@ -348,7 +348,7 @@ body {
     }
 }
 
-/* Fullscreen Button */
+/* Fullscreen Button - Desktop Only */
 .fullscreen-btn {
     position: fixed;
     bottom: 2rem;
@@ -382,4 +382,11 @@ body {
 .fullscreen-btn svg {
     width: 28px;
     height: 28px;
+}
+
+/* Hide fullscreen button on mobile and tablet */
+@media (max-width: 768px) {
+    .fullscreen-btn {
+        display: none !important;
+    }
 }
