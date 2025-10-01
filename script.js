@@ -170,7 +170,7 @@ class ParticleSystem {
         this.particles = [];
         this.animationId = null;
         this.sentiment = 'neutral'; // 'bull', 'bear', 'neutral'
-        this.particleCount = 80;
+        this.particleCount = this.getResponsiveParticleCount();
         this.transitionDuration = 60; // frames for smooth transition
         this.isTransitioning = false;
         this.transitionProgress = 0;
@@ -182,6 +182,42 @@ class ParticleSystem {
         };
 
         this.init();
+    }
+
+    getResponsiveParticleCount() {
+        const width = window.innerWidth;
+
+        if (width <= 480) {
+            // Mobile portrait
+            return 40;
+        } else if (width <= 768) {
+            // Mobile landscape and small tablets
+            return 50;
+        } else if (width <= 1024) {
+            // Tablets
+            return 60;
+        } else {
+            // Desktop
+            return 80;
+        }
+    }
+
+    getResponsiveParticleSize() {
+        const width = window.innerWidth;
+
+        if (width <= 480) {
+            // Mobile portrait - smaller particles
+            return Math.random() * 2 + 0.5; // 0.5px to 2.5px
+        } else if (width <= 768) {
+            // Mobile landscape and small tablets
+            return Math.random() * 2.5 + 0.8; // 0.8px to 3.3px
+        } else if (width <= 1024) {
+            // Tablets
+            return Math.random() * 2.8 + 1; // 1px to 3.8px
+        } else {
+            // Desktop - original size
+            return Math.random() * 3 + 1; // 1px to 4px
+        }
     }
 
     init() {
@@ -205,7 +241,7 @@ class ParticleSystem {
                 y: Math.random() * this.canvas.height,
                 vx: (Math.random() - 0.5) * 0.5,
                 vy: (Math.random() - 0.5) * 0.5,
-                size: Math.random() * 3 + 1,
+                size: this.getResponsiveParticleSize(),
                 opacity: Math.random() * 0.5 + 0.2,
                 color: this.colors.neutral[Math.floor(Math.random() * this.colors.neutral.length)],
                 life: Math.random() * 100 + 50,
