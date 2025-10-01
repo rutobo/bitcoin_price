@@ -170,7 +170,7 @@ class ParticleSystem {
         this.particles = [];
         this.animationId = null;
         this.sentiment = 'neutral'; // 'bull', 'bear', 'neutral'
-        this.particleCount = this.getResponsiveParticleCount();
+        this.particleCount = 80;
         this.transitionDuration = 60; // frames for smooth transition
         this.isTransitioning = false;
         this.transitionProgress = 0;
@@ -184,23 +184,6 @@ class ParticleSystem {
         this.init();
     }
 
-    getResponsiveParticleCount() {
-        const width = window.innerWidth;
-
-        if (width <= 480) {
-            // Mobile portrait
-            return 40;
-        } else if (width <= 768) {
-            // Mobile landscape and small tablets
-            return 50;
-        } else if (width <= 1024) {
-            // Tablets
-            return 60;
-        } else {
-            // Desktop
-            return 80;
-        }
-    }
 
     getResponsiveParticleSize() {
         const width = window.innerWidth;
