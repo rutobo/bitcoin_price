@@ -407,9 +407,20 @@ body {
     height: 28px;
 }
 
-/* Hide fullscreen button on mobile, tablet, and mobile landscape */
+/* Hide fullscreen button and reduce glow effects on mobile, tablet, and mobile landscape */
 @media (max-width: 1024px) {
     .fullscreen-btn {
         display: none !important;
+    }
+
+    /* Smaller glow effects for mobile/tablet */
+    .animal-container.active.bull-container {
+        filter: drop-shadow(0 0 8px #00ff00) drop-shadow(0 0 16px rgba(0, 255, 0, 0.3)) drop-shadow(0 0 24px rgba(0, 255, 0, 0.2));
+        transform: scale(1.02);
+    }
+
+    .animal-container.active.bear-container {
+        filter: drop-shadow(0 0 8px #ff0000) drop-shadow(0 0 16px rgba(255, 0, 0, 0.3)) drop-shadow(0 0 24px rgba(255, 0, 0, 0.2));
+        transform: scale(1.02);
     }
 }
