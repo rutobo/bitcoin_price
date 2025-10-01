@@ -344,17 +344,76 @@ class ParticleSystem {
     }
 }
 
-// Fullscreen toggle function
+// Fullscreen toggle function with mobile support
 function toggleFullscreen() {
+    const btn = document.getElementById('fullscreen-btn');
+
+    // Add visual feedback for button press
+    btn.style.transform = 'scale(0.95)';
+
     if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => {
+        // Try to enter fullscreen
+        document.documentElement.requestFullscreen().then(() => {
+            // Success - button state will update via event listener
+            setTimeout(() => {
+                btn.style.transform = '';
+            }, 150);
+        }).catch(err => {
             console.error('Error attempting to enable fullscreen:', err);
+            // Provide user feedback for mobile fullscreen limitations
+            showFullscreenError();
+            btn.style.transform = '';
         });
     } else {
-        document.exitFullscreen().catch(err => {
+        // Try to exit fullscreen
+        document.exitFullscreen().then(() => {
+            // Success - button state will update via event listener
+            setTimeout(() => {
+                btn.style.transform = '';
+            }, 150);
+        }).catch(err => {
             console.error('Error attempting to exit fullscreen:', err);
+            btn.style.transform = '';
         });
     }
+}
+
+// Show user-friendly error for mobile fullscreen limitations
+function showFullscreenError() {
+    // Create a temporary notification
+    const notification = document.createElement('div');
+    notification.innerHTML = 'Tap here to enable fullscreen';
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 165, 0, 0.9);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        z-index: 10000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        max-width: 300px;
+        text-align: center;
+    `;
+
+    document.body.appendChild(notification);
+
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+        }
+    }, 3000);
+
+    // Try again after showing the message
+    setTimeout(() => {
+        document.documentElement.requestFullscreen().catch(e => {
+            console.log('Fullscreen not available on this device');
+        });
+    }, 500);
 }
 
 // Update fullscreen button icon based on fullscreen state
